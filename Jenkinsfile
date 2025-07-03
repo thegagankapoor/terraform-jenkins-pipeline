@@ -1,10 +1,5 @@
 pipeline {
-agent {
-  docker {
-    image 'hashicorp/terraform:light'
-    args '--user root -v /tmp:/tmp'
-  }
-}
+agent any
 
   environment {
     AWS_ACCESS_KEY_ID     = credentials('aws-access-key-id')
