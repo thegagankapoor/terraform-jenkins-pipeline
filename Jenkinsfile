@@ -23,14 +23,13 @@ pipeline {
     }
     stage('Terraform Plan') {
       steps {
-
-        sh 'terraform plan'
+        sh 'cd terraform-infra && terraform plan'
       }
     }
     stage('Terraform Apply') {
      steps {
         input message: 'Approve to apply the Terraform plan?'
-        sh 'terraform apply -auto-approve'
+        sh 'cd terraform-infra && terraform apply -auto-approve'
       }
     }
   }
